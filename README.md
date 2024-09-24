@@ -1,17 +1,16 @@
->**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
-
-### Date created
+### Date created: September 24, 2024
 Include the date you created this project and README file.
 
-### Project Title
-Replace the Project Title
+### US Bikeshare Data Explorer
 
 ### Description
-Describe what your project is about and what it does
+This program offers insights into data about bikeshare programs in 3 major American cities--New York, Boston and Washington DC.  The data of a given city can be explored as a whole or by selecting a specific month and/or day of the week.
+
+This program can answer questions relating to when rides occurred, where rides occurred, the duration of rides and information about riders where available.
+
+Additionally, before viewing the summary statistics the user can explore the data set 5 rows at a time to see the underlying data.
 
 ### Files used
-Include the files used
+The file required to run this program is called bikeshare.py and can be run the with python bikeshare.py command
 
-### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
 
