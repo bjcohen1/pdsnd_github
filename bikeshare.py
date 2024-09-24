@@ -132,7 +132,7 @@ def trip_duration_stats(df):
 
     # TO DO: display mean travel time
     mean_travel = df['Trip Duration'].mean()
-    print(f'The average trip lenght was {str(mean_travel)} seconds')
+    print(f'The average trip length was {str(mean_travel)} seconds')
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -150,7 +150,8 @@ def user_stats(df):
     # TO DO: Display counts of gender
     if 'Gender' in df.columns:
         gender_count = df['Gender'].value_counts()
-        print(f'There are {gender_count.iloc[0]} {gender_count.index[0]} users and {gender_count.iloc[1]} {gender_count.index[1]} users')
+        print(f'There are {gender_count.iloc[0]} {gender_count.index[0]} users '
+              f'and {gender_count.iloc[1]} {gender_count.index[1]} users')
 
     # TO DO: Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
@@ -158,7 +159,8 @@ def user_stats(df):
         most_recent = df['Birth Year'].max()
         most_common = df['Birth Year'].mode()
 
-        print(f"The oldest user was born in {str(earliest_year)}, the youngest user was born in {str(most_recent)} and the most common birth year among users is {str(most_common)}.")
+        print(f"The oldest user was born in {str(earliest_year)}, the youngest user was born in {str(most_recent)} "
+              f"and the most common birth year among users is {str(most_common)}.")
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
