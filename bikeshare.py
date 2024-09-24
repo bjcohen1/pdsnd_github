@@ -16,7 +16,6 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     valid_city = False
     while not valid_city:
         city = input("Which city's data would you like to explore?").lower()
@@ -25,7 +24,6 @@ def get_filters():
         else:
             print("Please choose to explore data from chicago, new york city or washington")
 
-    # TO DO: get user input for month (all, january, february, ... , june)
     valid_month = False
     months = ['January', 'February', 'March', 'April', 'May', 'June']
     while not valid_month:
@@ -35,7 +33,6 @@ def get_filters():
        else:
             print("Please choose a month between January and June or write 'all'")
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     valid_day = False
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
     while not valid_day:
@@ -74,21 +71,19 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
+    """Displays statistics on the most frequent times of travel broken down by
+    month, day of the week and hour of the day."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
     common_month = df['Month'].count_values()[0]
     month_dict = {'01': 'January', '02': 'February', '03': 'March', '04': 'April', '05': 'May', '06': 'June'}
     print(f"The most common month is {month_dict[str(common_month)]}")
-                  
-    # TO DO: display the most common day of week
+
     common_day = df['Month'].count_values()[0]
     print(f'The most common day for trips is {common_day.capitalize()}')
 
-    # TO DO: display the most common start hour
     common_hour = df['Start Time'].count_values()[0]
     print(f"The most common hour for trips is {str(common_hour)}")
 
@@ -102,15 +97,12 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
     common_start = df['Start Station'].count_values()[0]
     print(f'The most common start station is {common_start}')
 
-    # TO DO: display most commonly used end station
     common_end = df['End Station'].count_values()[0]
     print(f'The most common end station is {common_end}')
 
-    # TO DO: display most frequent combination of start station and end station trip
     df['terminals'] = df["Start Station"] + ', ' + df["End Station"]
     common_trip = df['terminals'].count_vales()[0]
     print(f'The most common start/end combo is {common_trip}')
@@ -137,20 +129,18 @@ def trip_duration_stats(df):
 
 
 def user_stats(df):
-    """Displays statistics on bikeshare users."""
+    """Displays statistics on bikeshare users. Gender and Birth Year information is provided
+    when available in the dataset."""
 
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
     users = df['User Type'].value_counts()
     print(f'There are {users[0]} {users.index[0]}s and {users[1]} {users.index[1]}s')
 
-    # TO DO: Display counts of gender
     gender_count = df['Gender'].value_counts()
     print(f'There are {gender_count[0]} {gender_count.index[0]} users and {gender_count[1]} {gender_count.index[1]} users')
 
-    # TO DO: Display earliest, most recent, and most common year of birth
     earliest_year = df['Birth Year'].min()
     most_recent = df['Birth Year'].max()
     most_common = df['Birth Year'].mode()
