@@ -193,8 +193,14 @@ def main():
         data_explore(df)
 
         time_stats(df)
+        time.sleep(1)
+
         station_stats(df)
+        time.sleep(1)
+
         trip_duration_stats(df)
+        time.sleep(1)
+        
         user_stats(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
